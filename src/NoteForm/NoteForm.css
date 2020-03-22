@@ -12,11 +12,10 @@
     padding: 20px;
     background-color: rgba(0,0,0,.5);
     border: none;
-    border-radius: 10px;
-    color: white;
-    margin-right: 10px;
-    width: 100px;
-    font-size: 12px;
+    border-radius: 30px;
+    margin-right: 30px;
+    width: 30px;
+    height: 15px;
 }
 
 .NoteForm button{
