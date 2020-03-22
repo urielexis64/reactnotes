@@ -28,7 +28,8 @@ class App extends Component {
     this.db.on('child_added', snap => {
       notes.push({
         noteId: snap.key,
-        noteContent: snap.val().noteContent
+        noteContent: snap.val().noteContent,
+        noteColor: snap.val().noteColor
       })
       this.setState({ notes });
     });
@@ -48,14 +49,17 @@ class App extends Component {
     this.db.child(noteId).remove();
   }
 
-  addNote(note) {
+  addNote(note, color) {
     /* let{notes} = this.state;
     notes.push({
       noteContent: note,
       noteId: notes.length+1
     }); 
     this.setState({notes});*/
-    this.db.push().set({ noteContent: note });
+    this.db.push().set({
+      noteContent: note,
+      noteColor: color
+    });
   }
 
   removeAll() {
@@ -82,6 +86,7 @@ class App extends Component {
                     noteContent={note.noteContent}
                     noteId={note.noteId}
                     key={note.noteId}
+                    noteColor={note.noteColor}
                     removeNote={this.removeNote}
                   />
                 )

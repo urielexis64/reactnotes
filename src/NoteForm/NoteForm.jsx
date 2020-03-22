@@ -10,11 +10,12 @@ export default class NoteForm extends Component {
 
     addNote() {
         const noteText = this.textInput.value;
+        const colorInput = this.colorInput.value;
         if (noteText.trim() === '') {
             return;
         }
-        
-        this.props.addNote(this.textInput.value);
+
+        this.props.addNote(noteText, colorInput);
         this.textInput.value = '';
         this.textInput.focus();
     }
@@ -27,8 +28,15 @@ export default class NoteForm extends Component {
                     ref={input => { this.textInput = input; }}
                     placeholder="Write a note"
                     type="text"
-
                 />
+
+                <input
+                    id="color"
+                    ref={colorInput => { this.colorInput = colorInput; }}
+                    placeholder="Example: #072fa6"
+                    type="text"
+                />
+
                 <button
                     onClick={this.addNote}>
                     Add Note
