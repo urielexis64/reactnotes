@@ -20,6 +20,7 @@ class App extends Component {
     this.db = this.app.database().ref().child('notes');
     this.addNote = this.addNote.bind(this);
     this.removeNote = this.removeNote.bind(this);
+    this.removeAll = this.removeAll.bind(this);
   }
 
   componentDidMount() {
@@ -39,11 +40,9 @@ class App extends Component {
         }
       }
       this.setState({ notes });
-    })
+    });
 
   }
-
-
 
   removeNote(noteId) {
     this.db.child(noteId).remove();
@@ -57,7 +56,13 @@ class App extends Component {
     }); 
     this.setState({notes});*/
     this.db.push().set({ noteContent: note });
+  }
 
+  removeAll() {
+    firebase.database().ref('notes').remove();
+    this.setState({
+      notes: []
+    });
   }
 
 
@@ -65,7 +70,8 @@ class App extends Component {
     return (
       <div className="notesHeader">
         <div>
-          <h1>React y Firebase App</h1>
+          <h1>Quick Notes</h1>
+          <button id='borrarTodo' onClick={this.removeAll}>Remove all</button>
         </div>
         <div className="notesBody">
           <ul>

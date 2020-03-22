@@ -5,10 +5,15 @@ export default class NoteForm extends Component {
 
     constructor() {
         super();
-        this.addNote= this.addNote.bind(this);
+        this.addNote = this.addNote.bind(this);
     }
 
-    addNote(){
+    addNote() {
+        const noteText = this.textInput.value;
+        if (noteText.trim() === '') {
+            return;
+        }
+        
         this.props.addNote(this.textInput.value);
         this.textInput.value = '';
         this.textInput.focus();
@@ -17,10 +22,11 @@ export default class NoteForm extends Component {
     render() {
         return (
             <div className="NoteForm">
-                <input 
-                    ref={input =>{this.textInput = input;}}
+                <input
+                    id="txtInput"
+                    ref={input => { this.textInput = input; }}
                     placeholder="Write a note"
-                    type="text" 
+                    type="text"
 
                 />
                 <button
