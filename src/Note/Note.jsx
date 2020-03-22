@@ -9,15 +9,18 @@ class Note extends Component {
     }
 
     handleRemove = id => {
-        alert('XD'+id)
+        const response = window.confirm("Are you sure?");
+        if (response)
+            this.props.removeNote(id);
+
     }
 
     render() {
         return (
             <div className="Note">
-                <span
-                    onClick={()=>this.handleRemove(this.noteId)}>&times;</span>
                 <p>{this.noteContent}</p>
+                <span
+                    onClick={() => this.handleRemove(this.noteId)}>&times;</span>
             </div>
         );
     }

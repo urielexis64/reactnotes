@@ -3,15 +3,28 @@ import './NoteForm.css';
 
 export default class NoteForm extends Component {
 
-    constructor(params) {
-        super(params);
+    constructor() {
+        super();
+        this.addNote= this.addNote.bind(this);
+    }
+
+    addNote(){
+        this.props.addNote(this.textInput.value);
+        this.textInput.value = '';
+        this.textInput.focus();
     }
 
     render() {
         return (
             <div className="NoteForm">
-                <input type="text" />
-                <button>
+                <input 
+                    ref={input =>{this.textInput = input;}}
+                    placeholder="Write a note"
+                    type="text" 
+
+                />
+                <button
+                    onClick={this.addNote}>
                     Add Note
                 </button>
 

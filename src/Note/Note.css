@@ -3,9 +3,14 @@
     padding: 20px;
     color: black;
     margin-top: 10px;
+
 }
 
 span{
-
+    float: right;
     cursor: pointer;
+}
+
+p{
+    display: inline-block;
 }
