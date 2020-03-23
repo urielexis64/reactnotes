@@ -31,12 +31,14 @@ class Note extends Component {
         });
     }
 
-    updateNoteContent(noteId, newContent) {
+    updateNoteContent(noteId, newContent, color) {
         this.db.on('child_changed', snap => {
             this.noteContent = snap.val().noteContent;
+            this.noteColor = snap.val().noteColor;
         });
         this.db.child(noteId).update({
-            noteContent: newContent
+            noteContent: newContent,
+            noteColor: color
         });
         this.setModalState(false);
     }
@@ -55,24 +57,32 @@ class Note extends Component {
                     className="Modal"
                     isOpen={this.state.modalIsOpen}
                     onRequestClose={() => this.setModalState(false)}
-                    >
-                    <h2>Edit note</h2>
-                    <textarea
-                        id="txtEditInput"
-                        ref={input => { this.textInput = input; }}
-                        type="text">
-                        {this.noteContent}
-                    </textarea>
+                >
+                    <h1>Edit note</h1>
+                    <div>
+                        <textarea
+                            id="txtEditInput"
+                            ref={input => { this.textInput = input; }}
+                            type="text">
+                            {this.noteContent}
+                        </textarea>
+                        <input
+                            defaultValue={this.noteColor}
+                            id="modalcolor"
+                            ref={colorInput => { this.colorInput = colorInput; }}
+                            type="color"
+                        />
+                    </div>
 
-                    <button 
+                    <button
                         className="modalbtn save"
-                        onClick={() => this.updateNoteContent(this.noteId, this.textInput.value)}>
-                            Close and Save
+                        onClick={() => this.updateNoteContent(this.noteId, this.textInput.value, this.colorInput.value)}>
+                        Close and Save
                     </button>
-                    <button 
+                    <button
                         className="modalbtn close"
                         onClick={() => this.setModalState(false)}>
-                            Close
+                        Close
                     </button>
 
                 </Modal>

@@ -31,26 +31,36 @@ p{
     background: #5f2c82;
     background: -webkit-linear-gradient(to right, #49a09d, #5f2c82);
     background: linear-gradient(to right, #49a09d, #5f2c82);
-    position: relative;
-    margin: 50px;
+    margin: 50px ;
     padding: 100px;
     border-radius: 50px;
     outline: 0;
     box-shadow: 0px 0px 15px #000;
 }
 
-.Modal h2{
-    margin-top: -50px;
+.Modal h1{
+    margin-top: -80px;
+    margin-bottom: 20px;
+    color: #000;
+}
+
+#modalcolor{
+    margin-left: 10px;
+    height: 60px;
+    border: none;
+    border-radius: 5px;
+    background-color: transparent;
 }
 
 textarea{
-    margin-top: 20px;
     max-width: 600px;
     min-width: 600px;
     max-height: 500px;
     min-height: 50px;
     text-align: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: auto;
+    padding: 5px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .modalbtn{
@@ -79,4 +89,3 @@ textarea{
 .modalbtn.save:hover{
     background-color: rgb(165, 238, 18);
 }
-
