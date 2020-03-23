@@ -8,12 +8,13 @@
     box-shadow: 0px 0px 5px #ffffff;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     transition: transform .5s;
+    text-shadow: 1px 1px 8px white;
+    transform: perspective(1px) translateZ(0);
 }
 
 .Note:hover{
-    transform: scale(1.01)
+    transform: scale(1.01) perspective(1px) translateZ(0);
 }
-
 
 span{
     float: right;
@@ -25,3 +26,57 @@ p{
     max-width: 550px;
     display: inline-block;
 }
+
+.Modal{
+    background: #5f2c82;
+    background: -webkit-linear-gradient(to right, #49a09d, #5f2c82);
+    background: linear-gradient(to right, #49a09d, #5f2c82);
+    position: relative;
+    margin: 50px;
+    padding: 100px;
+    border-radius: 50px;
+    outline: 0;
+    box-shadow: 0px 0px 15px #000;
+}
+
+.Modal h2{
+    margin-top: -50px;
+}
+
+textarea{
+    margin-top: 20px;
+    max-width: 600px;
+    min-width: 600px;
+    max-height: 500px;
+    min-height: 50px;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.modalbtn{
+    border: none;
+    padding: 15px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    transition: background-color .4s;
+    margin-right: 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.close{
+    background-color: rgb(255, 99, 71);
+}
+
+.save{
+    background-color: rgb(154, 205, 50);
+}
+
+.modalbtn.close:hover{
+    background-color: rgb(255, 57, 22);
+}
+
+.modalbtn.save:hover{
+    background-color: rgb(165, 238, 18);
+}
+

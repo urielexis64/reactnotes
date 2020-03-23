@@ -31,6 +31,7 @@ export default class NoteForm extends Component {
                 />
 
                 <input
+                    value="#ffffff"
                     id="color"
                     ref={colorInput => { this.colorInput = colorInput; }}
                     type="color"

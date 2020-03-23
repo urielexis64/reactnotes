@@ -63,6 +63,8 @@ class App extends Component {
   }
 
   removeAll() {
+    const response = window.confirm('Are you sure?');
+    if (!response) return;
     firebase.database().ref('notes').remove();
     this.setState({
       notes: []
